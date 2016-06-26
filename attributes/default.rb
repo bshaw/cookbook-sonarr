@@ -6,9 +6,9 @@ default['sonarr']['host_name'] = 'sonarr'
 default['sonarr']['domain_name'] = 'example.com'
 default['sonarr']['config_volume'] = '/sonarr/config'
 default['sonarr']['tv_volume'] = '/sonarr/tv'
-default['sonarr']['plex_container'] = ''
 default['sonarr']['volumes'] = ['/dev/rtc:/dev/rtc:ro', "#{node['sonarr']['config_volume']}:/config", "#{node['sonarr']['tv_volume']}:/tv"]
 
-# Tou might want to mount your tv volume directly from the plex container:
+# You might want to mount your tv volume directly from the plex container:
 # default['sonarr']['plex_container'] = 'plex'
-# default['sonarr']['volumes'] = ["--volumes-from #{node['sonarr']['plex_container']}", "#{node['sonarr']['config_volume']}:/config", '/dev/rtc:/dev/rtc:ro']
+# default['sonarr']['volumes_from'] = node['sonarr']['plex_container']
+# default['sonarr']['volumes'] = ["#{node['sonarr']['config_volume']}:/config", '/dev/rtc:/dev/rtc:ro']
