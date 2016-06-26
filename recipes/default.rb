@@ -14,7 +14,7 @@ docker_container 'sonarr' do
   restart_policy 'always'
   host_name node['sonarr']['host_name']
   domain_name node['sonarr']['domain_name']
-  volumes ['/dev/rtc:/dev/rtc:ro', "#{node['sonarr']['config_volume']}:/config", "#{node['sonarr']['tv_volume']}:/tv"]
+  volumes node['sonarr']['volumes']
 end
 
 # open firewall port
