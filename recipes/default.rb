@@ -17,6 +17,7 @@ docker_container 'sonarr' do
   volumes_from ['transmission', 'plex']
   volumes ["#{node['sonarr']['config_volume']}:/volumes/config"]
   links ['transmission', 'plex']
+  user 'root'
 end
 
 # open firewall port
