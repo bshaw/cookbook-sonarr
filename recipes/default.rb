@@ -15,7 +15,7 @@ docker_container 'sonarr' do
   host_name node['sonarr']['host_name']
   domain_name node['sonarr']['domain_name']
   volumes_from ['transmission', 'plex']
-  volumes ["#{node['sonarr']['config_volume']}:/config"]
+  volumes ["#{node['sonarr']['config_volume']}:/volumes/config"]
   links ['transmission', 'plex']
 end
 
