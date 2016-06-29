@@ -14,8 +14,9 @@ docker_container 'sonarr' do
   restart_policy 'always'
   host_name node['sonarr']['host_name']
   domain_name node['sonarr']['domain_name']
-  volumes_from node['sonarr']['volumes_from'] unless node['sonarr']['volumes_from'].nil?
-  volumes node['sonarr']['volumes']
+  volumes_from ['transmission', 'plex']
+  volumes ["#{node['sonarr']['config_volume']}:/config"]
+  links ['transmission', 'plex']
 end
 
 # open firewall port
