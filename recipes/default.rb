@@ -14,7 +14,7 @@ docker_container 'sonarr' do
   restart_policy 'always'
   host_name node['sonarr']['host_name']
   domain_name node['sonarr']['domain_name']
-  volumes_from ['transmission', 'plex']
+  volumes_from ['transmission', 'sabnzbd', 'plex']
   volumes ["#{node['sonarr']['config_volume']}:/volumes/config"]
   links ['transmission', 'plex']
   user 'root'
